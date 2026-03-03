@@ -5,7 +5,8 @@
 
 (function() {
   const path = window.location.pathname;
-  const root = path.split('/').filter(Boolean).length > 1 ? '../' : '';
+  const inSubfolder = path.includes('/services/') || path.includes('/case-studies/');
+  const root = inSubfolder ? '../' : '';
 
   // ── NAV ───────────────────────────────────────────────────
   const navHTML = `

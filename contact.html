@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Outside Agency</title>
+  <meta name="description" content="Request a callback from Outside Agency. We'll reach out within one business day.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div id="popup-placeholder"></div>
+
+<section class="section-dark" style="padding: calc(var(--nav-h) + 80px) 0 100px; min-height:100vh;">
+  <div class="hero-glow"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="form-layout">
+      <div class="form-info fade-up">
+        <span class="eyebrow">Get In Touch</span>
+        <h1>Let's Talk.</h1>
+        <p>Fill in the form and we'll reach out within one business day. No auto-responders, no sales scripts — just a real conversation about your marketing.</p>
+        <div class="contact-detail"><span>📧</span><span>Email: <strong>gladyn@outsideagency.net</strong></span></div>
+        <div class="contact-detail"><span>📞</span><span>We'll call you — <a href="schedule.html" style="color:var(--gold);">schedule here</a> or use the form</span></div>
+        <div style="margin-top:40px;padding:24px;border:1px solid #252525;background:var(--black-soft);">
+          <p style="font-size:0.85rem;color:var(--gray-mid);line-height:1.7;">Prefer to jump straight to a call? <a href="schedule.html" style="color:var(--gold);font-weight:600;">Book your free audit here →</a></p>
+        </div>
+      </div>
+      <div class="fade-up fade-up-delay-1">
+        <div class="form-card">
+          <h3>Request a Callback</h3>
+          <form id="contact-form" action="https://formspree.io/f/xlgwypwn" method="POST">
+            <input type="hidden" name="_subject" value="New callback request — Outside Agency">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name *</label>
+                <input type="text" name="first_name" placeholder="Jane" required>
+              </div>
+              <div class="form-group">
+                <label>Last Name *</label>
+                <input type="text" name="last_name" placeholder="Smith" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Business Email *</label>
+              <input type="email" name="email" placeholder="your@businessemail.com" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" name="phone" placeholder="Best number to reach you">
+            </div>
+            <div class="form-group">
+              <label>Best Time to Reach You</label>
+              <select name="best_time">
+                <option value="">Select a time</option>
+                <option>Morning (8am–12pm)</option>
+                <option>Afternoon (12pm–5pm)</option>
+                <option>Evening (5pm–8pm)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message (Optional)</label>
+              <textarea name="message" placeholder="Tell us a bit about your business and what you need help with."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">Request My Callback</button>
+            <p class="form-privacy">We don't share your information. Ever.</p>
+          </form>
+          <div id="form-success" style="display:none;text-align:center;padding:60px 20px;">
+            <div style="font-size:3rem;margin-bottom:16px;">✓</div>
+            <h3 style="color:var(--gold);margin-bottom:12px;">Got it!</h3>
+            <p style="color:var(--gray-dark);">We'll be in touch within one business day.</p>
+            <a href="index.html" class="btn btn-outline-dark" style="margin-top:24px;display:inline-flex;">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="components.js"></script>
+<script src="main.js"></script>
+<script>
+const form = document.getElementById('contact-form');
+const success = document.getElementById('form-success');
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Something went wrong — try again';
+      btn.disabled = false;
+    }
+  });
+}
+</script>
+</body>
+</html>

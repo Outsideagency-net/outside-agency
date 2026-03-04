@@ -13,8 +13,7 @@
 <nav id="nav">
   <div class="container">
     <a href="${root}index.html" class="nav-logo">
-      <div class="nav-logo-mark">OA</div>
-      <span class="nav-logo-text">Outside Agency</span>
+      <img src="${root}logo-white.png" alt="Outside Agency" class="nav-logo-img">
     </a>
     <div class="nav-links">
       <div class="nav-dropdown">
@@ -95,8 +94,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="${root}index.html" class="nav-logo" style="margin-bottom:4px;">
-          <div class="nav-logo-mark">OA</div>
-          <span class="nav-logo-text">Outside Agency</span>
+          <img src="${root}logo-white.png" alt="Outside Agency" class="footer-logo-img">
         </a>
         <p>Performance marketing for SMBs and eCommerce brands. Paid search, social, programmatic, DOOH, and content — built to drive revenue.</p>
         <a href="${root}schedule.html" class="btn btn-primary btn-sm">Schedule a Free Call →</a>

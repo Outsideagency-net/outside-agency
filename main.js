@@ -127,14 +127,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const closePopup = () => {
       overlay.classList.remove('visible');
       document.body.style.overflow = '';
-      // Re-engage every 15 seconds until they convert
+      // Re-engage every 60 seconds until they convert
       reEngageTimer = setTimeout(() => {
         if (!converted) showPopup();
-      }, 15000);
+      }, 60000);
     };
 
-    // First appearance after 30 seconds
-    setTimeout(showPopup, 30000);
+    // First appearance after 60 seconds
+    setTimeout(showPopup, 60000);
 
     // Close button
     const closeBtn = overlay.querySelector('.popup-close');

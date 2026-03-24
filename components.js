@@ -119,7 +119,7 @@
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
-        <a href="mailto:gladyn@outsideagency.net">gladyn@outsideagency.net</a>
+        <a href="mailto:marketing@outsideagency.net">marketing@outsideagency.net</a>
         <a href="${root}schedule.html">Book a Free Audit</a>
         <div style="margin-top:20px;">
           <p style="font-size:0.78rem;color:#333;margin-bottom:8px;font-family:var(--font-body);">No contracts. No commitment.<br>Free audit included.</p>

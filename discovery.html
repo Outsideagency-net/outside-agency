@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Discovery — Outside Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --border: #272727;
+      --accent: #c9a84c;
+      --accent-light: #e2c47a;
+      --text: #f0ede6;
+      --text-muted: #888;
+      --text-dim: #444;
+      --error: #d95f5f;
+      --success: #52b788;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: rgba(13,13,13,0.97);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    .logo { display: flex; align-items: center; gap: 12px; }
+
+    .logo-mark {
+      width: 34px; height: 34px;
+      border: 1.5px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--accent);
+    }
+
+    .logo-name {
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .logo-sub {
+      font-size: 10px; font-weight: 300;
+      color: var(--text-muted); letter-spacing: 0.1em;
+      display: block; margin-top: 2px;
+    }
+
+    .badge {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent);
+      padding: 5px 11px;
+    }
+
+    /* PROGRESS */
+    .prog-track {
+      height: 2px; background: var(--border);
+      position: sticky; top: 79px; z-index: 99;
+    }
+    .prog-fill {
+      height: 100%; background: var(--accent);
+      transition: width 0.35s ease; width: 0%;
+    }
+
+    /* MAIN */
+    main {
+      flex: 1; max-width: 740px;
+      margin: 0 auto; width: 100%;
+      padding: 72px 32px 140px;
+    }
+
+    /* INTRO */
+    .intro { margin-bottom: 80px; animation: fadeUp 0.6s ease both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 22px;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .eyebrow::after {
+      content: ''; flex: 1; max-width: 60px;
+      height: 1px; background: var(--accent); opacity: 0.4;
+    }
+
+    .intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4.5vw, 50px);
+      font-weight: 400; line-height: 1.18;
+      margin-bottom: 26px;
+    }
+
+    .intro h1 em { font-style: italic; color: var(--accent-light); }
+
+    .intro p {
+      font-size: 14px; line-height: 1.85;
+      color: var(--text-muted); max-width: 520px;
+    }
+
+    .est {
+      margin-top: 20px;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; color: var(--text-dim);
+      letter-spacing: 0.06em;
+    }
+
+    .est-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%; background: var(--accent); opacity: 0.6;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 68px;
+      border-top: 1px solid var(--border);
+      padding-top: 52px;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .sec-header {
+      display: flex; align-items: baseline;
+      gap: 18px; margin-bottom: 40px;
+    }
+
+    .sec-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px; color: var(--accent);
+      min-width: 20px;
+    }
+
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px; font-weight: 400;
+    }
+
+    /* FIELDS */
+    .field { margin-bottom: 34px; }
+
+    label.ql {
+      display: block;
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--text); margin-bottom: 10px;
+    }
+
+    label.ql .req { color: var(--accent); margin-left: 2px; }
+
+    .hint {
+      font-size: 11px; color: var(--text-muted);
+      margin-bottom: 12px; margin-top: -6px;
+      line-height: 1.6;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    select, textarea {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 300;
+      padding: 13px 15px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none; appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+
+    textarea { resize: vertical; min-height: 96px; line-height: 1.65; }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23c9a84c' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    /* TWO-COL */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* CHECKBOX GRID */
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+      gap: 8px;
+    }
+
+    .chip {
+      display: flex; align-items: center; gap: 9px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 11px 13px;
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s;
+      user-select: none;
+    }
+
+    .chip:hover { border-color: #3a3a3a; }
+    .chip.on { border-color: var(--accent); background: rgba(201,168,76,0.07); }
+    .chip input { display: none; }
+
+    .cbox {
+      width: 15px; height: 15px;
+      border: 1px solid var(--border); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.18s, border-color 0.18s;
+    }
+
+    .chip.on .cbox { background: var(--accent); border-color: var(--accent); }
+    .cbox svg { display: none; }
+    .chip.on .cbox svg { display: block; }
+    .chip-label { font-size: 12px; line-height: 1.4; }
+
+    /* RADIO ROW */
+    .radio-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .pill {
+      display: flex; align-items: center; gap: 7px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 9px 16px;
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s;
+      user-select: none;
+    }
+
+    .pill:hover { border-color: #3a3a3a; }
+    .pill.on { border-color: var(--accent); background: rgba(201,168,76,0.07); }
+    .pill input { display: none; }
+
+    .rdot {
+      width: 13px; height: 13px;
+      border: 1px solid var(--border); border-radius: 50%;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.18s;
+    }
+
+    .pill.on .rdot { border-color: var(--accent); }
+
+    .rdot::after {
+      content: ''; width: 5px; height: 5px;
+      border-radius: 50%; background: var(--accent); display: none;
+    }
+
+    .pill.on .rdot::after { display: block; }
+    .pill-label { font-size: 12px; }
+
+    /* VALIDATION */
+    .err { font-size: 11px; color: var(--error); margin-top: 6px; display: none; }
+    .field.bad .err { display: block; }
+    .field.bad input,
+    .field.bad select,
+    .field.bad textarea { border-color: var(--error); }
+
+    /* SUBMIT */
+    .submit-area {
+      border-top: 1px solid var(--border);
+      padding-top: 52px;
+    }
+
+    .submit-note {
+      font-size: 11px; color: var(--text-dim);
+      line-height: 1.8; margin-bottom: 28px;
+      max-width: 500px;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 11px;
+      background: var(--accent); color: #0d0d0d;
+      border: none; padding: 17px 34px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-primary:hover { background: var(--accent-light); }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* STATES */
+    .state { display: none; text-align: center; padding: 80px 20px; }
+    .state.active { display: block; animation: fadeUp 0.5s ease both; }
+
+    .state-icon {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+    }
+
+    .state-icon.ok { border: 1.5px solid var(--success); }
+    .state-icon.err-ico { border: 1.5px solid var(--error); }
+
+    .state h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px; font-weight: 400; margin-bottom: 14px;
+    }
+
+    .state p {
+      color: var(--text-muted); font-size: 14px;
+      line-height: 1.75; margin-bottom: 32px;
+    }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: transparent; color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 13px 26px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { background: var(--accent); color: #0d0d0d; }
+
+    /* SPINNER */
+    .spin {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(13,13,13,0.3);
+      border-top-color: #0d0d0d;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 22px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 10px; color: var(--text-dim);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      header { padding: 18px 20px; }
+      main { padding: 48px 20px 100px; }
+      footer { padding: 18px 20px; flex-direction: column; gap: 8px; text-align: center; }
+      .two-col { grid-template-columns: 1fr; }
+      .check-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-mark">OA</div>
+    <div>
+      <div class="logo-name">Outside Agency</div>
+      <span class="logo-sub">Performance Marketing</span>
+    </div>
+  </div>
+  <div class="badge">Marketing Discovery</div>
+</header>
+
+<div class="prog-track"><div class="prog-fill" id="prog"></div></div>
+
+<main>
+
+  <!-- INTRO -->
+  <div class="intro" id="intro">
+    <div class="eyebrow">Performance Marketing — Discovery</div>
+    <h1>Tell us about your<br>business & <em>goals.</em></h1>
+    <p>Before we recommend anything, we want to understand where you are — your current marketing, your customers, what you're trying to achieve, and what you have to work with. This takes about 6–8 minutes.</p>
+    <div class="est"><div class="est-dot"></div> 5 sections &nbsp;·&nbsp; ~6–8 min &nbsp;·&nbsp; PDF summary downloads on submit</div>
+  </div>
+
+  <!-- FORM -->
+  <form id="form" novalidate>
+
+    <!-- ── 01 BUSINESS INFO ── -->
+    <div class="section">
+      <div class="sec-header">
+        <span class="sec-num">01</span>
+        <span class="sec-title">About Your Business</span>
+      </div>
+
+      <div class="field" id="f-biz-name">
+        <label class="ql">Business Name <span class="req">*</span></label>
+        <input type="text" name="biz_name" placeholder="Your business name" />
+        <div class="err">This field is required.</div>
+      </div>
+
+      <div class="two-col">
+        <div class="field" id="f-industry">
+          <label class="ql">Industry / Business Type <span class="req">*</span></label>
+          <select name="industry">
+            <option value="" disabled selected>Select one</option>
+            <option>Restaurant / Food & Beverage</option>
+            <option>Retail (Brick & Mortar)</option>
+            <option>eCommerce / Online Retail</option>
+            <option>Health, Wellness & Beauty</option>
+            <option>Home Services (HVAC, Plumbing, etc.)</option>
+            <option>Automotive</option>
+            <option>Real Estate</option>
+            <option>Healthcare / Medical</option>
+            <option>Education / Training</option>
+            <option>Entertainment / Events</option>
+            <option>Hospitality / Travel</option>
+            <option>Professional Services</option>
+            <option>Nonprofit</option>
+            <option>Other</option>
+          </select>
+          <div class="err">Please select an option.</div>
+        </div>
+
+        <div class="field" id="f-location">
+          <label class="ql">Primary Location <span class="req">*</span></label>
+          <input type="text" name="location" placeholder="City, State" />
+          <div class="err">This field is required.</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="field" id="f-locations-count">
+          <label class="ql">Number of Locations</label>
+          <select name="locations_count">
+            <option value="" disabled selected>Select one</option>
+            <option>1</option>
+            <option>2–5</option>
+            <option>6–15</option>
+            <option>16+</option>
+          </select>
+        </div>
+
+        <div class="field" id="f-biz-size">
+          <label class="ql">Business Size</label>
+          <select name="biz_size">
+            <option value="" disabled selected>Select one</option>
+            <option>Solo / Owner-operated</option>
+            <option>2–10 employees</option>
+            <option>11–50 employees</option>
+            <option>51–250 employees</option>
+            <option>250+ employees</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="field" id="f-contact-name">
+          <label class="ql">Your Name & Title <span class="req">*</span></label>
+          <input type="text" name="contact_name" placeholder="Jane Smith, Owner" />
+          <div class="err">This field is required.</div>
+        </div>
+
+        <div class="field" id="f-contact-email">
+          <label class="ql">Email Address <span class="req">*</span></label>
+          <input type="email" name="contact_email" placeholder="you@yourbusiness.com" />
+          <div class="err">Please enter a valid email.</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="field" id="f-phone">
+          <label class="ql">Phone Number</label>
+          <input type="tel" name="contact_phone" placeholder="(555) 000-0000" />
+        </div>
+
+        <div class="field" id="f-website">
+          <label class="ql">Website</label>
+          <input type="url" name="website" placeholder="https://yourbusiness.com" />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── 02 CURRENT MARKETING ── -->
+    <div class="section">
+      <div class="sec-header">
+        <span class="sec-num">02</span>
+        <span class="sec-title">Your Current Marketing</span>
+      </div>
+
+      <div class="field" id="f-channels">
+        <label class="ql">Which marketing channels are you currently using?</label>
+        <p class="hint">Select all that apply</p>
+        <div class="check-grid">
+          <label class="chip" onclick="toggleChip(this)">
+            <input type="checkbox" name="channels" value="Social Media (Organic)" />
+            <div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div>
+            <span class="chip-label">Social Media (Organic)</span>
+          </label>
+          <label class="chip" onclick="toggleChip(this)">
+            <input type="checkbox" name="channels" value="Paid Social Ads" />
+            <div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div>
+            <span class="chip-label">Paid Social Ads</span>
+          </label>
+          <label class="chip" onclick="toggleChip(this)">
+            <input type="checkbox" name="channels" value="Google / Search Ads" />
+            <div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div>
+            <span class="chip-label">Google / Search Ads</span>
+          </label>
+          <label class="chip" onclick="toggleChip(this)">
+            <input type="checkbox" name="channels" value="Email Marketing" />
+            <div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div>
+            <span class="chip-label">Email Marketing</span>
+          </label>
+          <label class="chip" onclick="toggleChip(this)">
+            <input type="checkbox" name="channels" value="SEO / Content" />
+            <div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div>
+            <span class="chip-label">SEO / Content</span>
+          </label>
+          <label class="chip" onclick="toggleChip(this)">
+            <input type="checkbox" name="channels" value="Loyalty Program" />
+            <div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div>
+            <span class="chip-label">Loyalty Program</span>
+          </label>
+          <label class="chip" onclick="toggleChip(this)">
+            <input type="checkbox" name="channels" value="Print / Direct Mail" />
+            <div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div>
+            <span class="chip-label">Print / Direct Mail</span>
+          </label>
+          <label class="chip" onclick="toggleChip(this)">
+            <input type="checkbox" name="channels" value="None yet" />
+            <div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div>
+            <span class="chip-label">None yet</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field" id="f-satisfaction">
+        <label class="ql">How satisfied are you with your current marketing results?</label>
+        <div class="radio-row">
+          <label class="pill" onclick="selectPill(this,'satisfaction')"><input type="radio" name="satisfaction" value="Very Dissatisfied"/><div class="rdot"></div><span class="pill-label">Very Dissatisfied</span></label>
+          <label class="pill" onclick="selectPill(this,'satisfaction')"><input type="radio" name="satisfaction" value="Dissatisfied"/><div class="rdot"></div><span class="pill-label">Dissatisfied</span></label>
+          <label class="pill" onclick="selectPill(this,'satisfaction')"><input type="radio" name="satisfaction" value="Neutral"/><div class="rdot"></div><span class="pill-label">Neutral</span></label>
+          <label class="pill" onclick="selectPill(this,'satisfaction')"><input type="radio" name="satisfaction" value="Satisfied"/><div class="rdot"></div><span class="pill-label">Satisfied</span></label>
+          <label class="pill" onclick="selectPill(this,'satisfaction')"><input type="radio" name="satisfaction" value="Very Satisfied"/><div class="rdot"></div><span class="pill-label">Very Satisfied</span></label>
+        </div>
+      </div>
+
+      <div class="field" id="f-challenge">
+        <label class="ql">What's your biggest marketing challenge right now?</label>
+        <textarea name="challenge" placeholder="Be as specific as you'd like — the more context, the better we can help."></textarea>
+      </div>
+
+      <div class="field" id="f-customer-data">
+        <label class="ql">Do you currently collect customer contact info (phone / email)?</label>
+        <div class="radio-row">
+          <label class="pill" onclick="selectPill(this,'customer_data')"><input type="radio" name="customer_data" value="Yes — solid list"/><div class="rdot"></div><span class="pill-label">Yes — solid list</span></label>
+          <label class="pill" onclick="selectPill(this,'customer_data')"><input type="radio" name="customer_data" value="Somewhat — incomplete"/><div class="rdot"></div><span class="pill-label">Somewhat — incomplete</span></label>
+          <label class="pill" onclick="selectPill(this,'customer_data')"><input type="radio" name="customer_data" value="No — starting from zero"/><div class="rdot"></div><span class="pill-label">No — starting from zero</span></label>
+        </div>
+      </div>
+
+      <div class="field" id="f-list-size">
+        <label class="ql">Approximate size of your current contact list</label>
+        <div class="radio-row">
+          <label class="pill" onclick="selectPill(this,'list_size')"><input type="radio" name="list_size" value="0–250"/><div class="rdot"></div><span class="pill-label">0–250</span></label>
+          <label class="pill" onclick="selectPill(this,'list_size')"><input type="radio" name="list_size" value="251–1,000"/><div class="rdot"></div><span class="pill-label">251–1,000</span></label>
+          <label class="pill" onclick="selectPill(this,'list_size')"><input type="radio" name="list_size" value="1,001–5,000"/><div class="rdot"></div><span class="pill-label">1,001–5,000</span></label>
+          <label class="pill" onclick="selectPill(this,'list_size')"><input type="radio" name="list_size" value="5,000+"/><div class="rdot"></div><span class="pill-label">5,000+</span></label>
+          <label class="pill" onclick="selectPill(this,'list_size')"><input type="radio" name="list_size" value="Unknown"/><div class="rdot"></div><span class="pill-label">Unknown</span></label>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── 03 MARKETING GOALS & SERVICES ── -->
+    <div class="section">
+      <div class="sec-header">
+        <span class="sec-num">03</span>
+        <span class="sec-title">Marketing Goals & Services</span>
+      </div>
+
+      <div class="field" id="f-mkt-goals">
+        <label class="ql">What are your primary marketing goals?</label>
+        <p class="hint">Select all that apply</p>
+        <div class="check-grid">
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="mkt_goals" value="Drive repeat purchases / visits"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Drive repeat visits / purchases</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="mkt_goals" value="Generate new leads or customers"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Generate new leads / customers</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="mkt_goals" value="Increase brand awareness"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Increase brand awareness</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="mkt_goals" value="Build a loyalty program"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Build a loyalty program</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="mkt_goals" value="Win back lapsed customers"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Win back lapsed customers</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="mkt_goals" value="Promote deals or seasonal offers"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Promote deals / offers</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="mkt_goals" value="Improve online presence / visibility"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Improve online visibility</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="mkt_goals" value="Increase online sales or bookings"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Increase online sales / bookings</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="mkt_goals" value="Not sure yet"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Not sure yet</span></label>
+        </div>
+      </div>
+
+      <div class="field" id="f-services">
+        <label class="ql">Which services are you interested in exploring?</label>
+        <p class="hint">Select all that apply — no commitment required</p>
+        <div class="check-grid">
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="services" value="SMS / Text Message Marketing"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">SMS / Text Message Marketing</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="services" value="Paid Search (Google Ads)"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Paid Search (Google Ads)</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="services" value="Paid Social (Meta, TikTok, etc.)"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Paid Social (Meta, TikTok, etc.)</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="services" value="Email Marketing"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Email Marketing</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="services" value="SEO / Local Search"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">SEO / Local Search</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="services" value="Loyalty Program Setup"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Loyalty Program Setup</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="services" value="Marketing Strategy / Consulting"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Strategy / Consulting</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="services" value="Full-Service Performance Marketing"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Full-Service Performance Mktg</span></label>
+          <label class="chip" onclick="toggleChip(this)"><input type="checkbox" name="services" value="Not sure — need guidance"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Not sure — need guidance</span></label>
+        </div>
+      </div>
+
+      <div class="field" id="f-success">
+        <label class="ql">What would success look like at 90 days?</label>
+        <textarea name="success_definition" placeholder="e.g. More repeat customers, measurable lift in sales, a channel we can scale with confidence."></textarea>
+      </div>
+
+      <div class="field" id="f-launch">
+        <label class="ql">When are you hoping to get started?</label>
+        <div class="radio-row">
+          <label class="pill" onclick="selectPill(this,'launch')"><input type="radio" name="launch" value="ASAP (within 30 days)"/><div class="rdot"></div><span class="pill-label">ASAP (30 days)</span></label>
+          <label class="pill" onclick="selectPill(this,'launch')"><input type="radio" name="launch" value="1–3 months"/><div class="rdot"></div><span class="pill-label">1–3 months</span></label>
+          <label class="pill" onclick="selectPill(this,'launch')"><input type="radio" name="launch" value="3–6 months"/><div class="rdot"></div><span class="pill-label">3–6 months</span></label>
+          <label class="pill" onclick="selectPill(this,'launch')"><input type="radio" name="launch" value="Just exploring"/><div class="rdot"></div><span class="pill-label">Just exploring</span></label>
+        </div>
+      </div>
+
+      <div class="field" id="f-concerns">
+        <label class="ql">Any concerns or hesitations?</label>
+        <textarea name="concerns" placeholder="e.g. Not sure what channel fits our business, had a bad experience with an agency before, working with a tight budget."></textarea>
+      </div>
+
+    </div>
+
+    <!-- ── 04 BUDGET ── -->
+    <div class="section">
+      <div class="sec-header">
+        <span class="sec-num">04</span>
+        <span class="sec-title">Budget & Investment</span>
+      </div>
+
+      <div class="field" id="f-total-budget">
+        <label class="ql">Current total monthly marketing budget (all channels)</label>
+        <p class="hint">This helps us understand your overall spend context — no wrong answers.</p>
+        <div class="radio-row">
+          <label class="pill" onclick="selectPill(this,'total_budget')"><input type="radio" name="total_budget" value="Under $500/mo"/><div class="rdot"></div><span class="pill-label">Under $500</span></label>
+          <label class="pill" onclick="selectPill(this,'total_budget')"><input type="radio" name="total_budget" value="$500–$1,500/mo"/><div class="rdot"></div><span class="pill-label">$500–$1,500</span></label>
+          <label class="pill" onclick="selectPill(this,'total_budget')"><input type="radio" name="total_budget" value="$1,500–$5,000/mo"/><div class="rdot"></div><span class="pill-label">$1,500–$5,000</span></label>
+          <label class="pill" onclick="selectPill(this,'total_budget')"><input type="radio" name="total_budget" value="$5,000–$15,000/mo"/><div class="rdot"></div><span class="pill-label">$5,000–$15,000</span></label>
+          <label class="pill" onclick="selectPill(this,'total_budget')"><input type="radio" name="total_budget" value="$15,000+/mo"/><div class="rdot"></div><span class="pill-label">$15,000+</span></label>
+        </div>
+      </div>
+
+      <div class="field" id="f-sms-budget">
+        <label class="ql">Monthly budget you're considering for SMS specifically <span class="req">*</span></label>
+        <p class="hint">Covers platform fees and management. Helps us point you toward the right approach.</p>
+        <div class="radio-row">
+          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="Under $200/mo"/><div class="rdot"></div><span class="pill-label">Under $200</span></label>
+          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="$200–$500/mo"/><div class="rdot"></div><span class="pill-label">$200–$500</span></label>
+          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="$500–$1,000/mo"/><div class="rdot"></div><span class="pill-label">$500–$1,000</span></label>
+          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="$1,000–$2,500/mo"/><div class="rdot"></div><span class="pill-label">$1,000–$2,500</span></label>
+          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="$2,500+/mo"/><div class="rdot"></div><span class="pill-label">$2,500+</span></label>
+          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="Not sure yet"/><div class="rdot"></div><span class="pill-label">Not sure yet</span></label>
+        </div>
+        <div class="err">Please select a budget range.</div>
+      </div>
+
+      <div class="field" id="f-decision-timeline">
+        <label class="ql">How soon are you prepared to move forward?</label>
+        <div class="radio-row">
+          <label class="pill" onclick="selectPill(this,'decision_timeline')"><input type="radio" name="decision_timeline" value="Immediately"/><div class="rdot"></div><span class="pill-label">Immediately</span></label>
+          <label class="pill" onclick="selectPill(this,'decision_timeline')"><input type="radio" name="decision_timeline" value="Within 2 weeks"/><div class="rdot"></div><span class="pill-label">Within 2 weeks</span></label>
+          <label class="pill" onclick="selectPill(this,'decision_timeline')"><input type="radio" name="decision_timeline" value="1–3 months"/><div class="rdot"></div><span class="pill-label">1–3 months</span></label>
+          <label class="pill" onclick="selectPill(this,'decision_timeline')"><input type="radio" name="decision_timeline" value="Just researching"/><div class="rdot"></div><span class="pill-label">Just researching</span></label>
+        </div>
+      </div>
+
+      <div class="field" id="f-roi">
+        <label class="ql">What would a meaningful return look like to you?</label>
+        <textarea name="roi_expectation" placeholder="e.g. I'd want to see a measurable lift in repeat purchases within 60 days — even modest numbers would validate the investment."></textarea>
+      </div>
+
+    </div>
+
+    <!-- ── 05 FINAL ── -->
+    <div class="section">
+      <div class="sec-header">
+        <span class="sec-num">05</span>
+        <span class="sec-title">A Few More Things</span>
+      </div>
+
+      <div class="field" id="f-decision-makers">
+        <label class="ql">Who else is involved in making this decision?</label>
+        <div class="radio-row">
+          <label class="pill" onclick="selectPill(this,'decision_makers')"><input type="radio" name="decision_makers" value="Just me"/><div class="rdot"></div><span class="pill-label">Just me</span></label>
+          <label class="pill" onclick="selectPill(this,'decision_makers')"><input type="radio" name="decision_makers" value="Me + a partner"/><div class="rdot"></div><span class="pill-label">Me + a partner</span></label>
+          <label class="pill" onclick="selectPill(this,'decision_makers')"><input type="radio" name="decision_makers" value="Leadership / executive approval"/><div class="rdot"></div><span class="pill-label">Leadership approval needed</span></label>
+          <label class="pill" onclick="selectPill(this,'decision_makers')"><input type="radio" name="decision_makers" value="Marketing team involved"/><div class="rdot"></div><span class="pill-label">Marketing team involved</span></label>
+        </div>
+      </div>
+
+      <div class="field" id="f-referral">
+        <label class="ql">How did you hear about Outside Agency?</label>
+        <select name="referral">
+          <option value="" disabled selected>Select one</option>
+          <option>Referral from a colleague or peer</option>
+          <option>LinkedIn</option>
+          <option>Google Search</option>
+          <option>Social Media</option>
+          <option>outsideagency.net</option>
+          <option>Already a client</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field" id="f-notes">
+        <label class="ql">Anything else we should know before our first conversation?</label>
+        <textarea name="notes" placeholder="Open floor — context, history, deal-breakers, specific asks. All of it helps." style="min-height:110px;"></textarea>
+      </div>
+
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-area">
+      <p class="submit-note">By submitting this form, you agree to be contacted by Outside Agency regarding SMS marketing services. Your information will never be sold or shared with third parties.</p>
+      <button type="button" class="btn-primary" id="submitBtn" onclick="handleSubmit()">
+        <span id="btnLabel">Submit & Download PDF</span>
+        <div class="spin" id="spinner"></div>
+        <svg id="btnArrow" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 7.5h9M8.5 4l3.5 3.5L8.5 11" stroke="#0d0d0d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS STATE -->
+  <div class="state" id="stateSuccess">
+    <div class="state-icon ok">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><polyline points="5 13 10 18 21 8" stroke="#52b788" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2>You're all set.</h2>
+    <p>Your responses have been sent to the Outside Agency team. Your PDF summary downloaded automatically — check your downloads folder. We'll be in touch soon to set up a discovery call.</p>
+    <button class="btn-outline" onclick="downloadPDF()">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M4 6.5l2.5 2.5 2.5-2.5M1.5 11.5h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Re-download PDF
+    </button>
+  </div>
+
+  <!-- ERROR STATE -->
+  <div class="state" id="stateError">
+    <div class="state-icon err-ico">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><line x1="8" y1="8" x2="18" y2="18" stroke="#d95f5f" stroke-width="1.8" stroke-linecap="round"/><line x1="18" y1="8" x2="8" y2="18" stroke="#d95f5f" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <h2>Something went wrong.</h2>
+    <p>We couldn't send your responses — but your PDF still downloaded. Please email it directly to <strong>marketing@outsideagency.net</strong> and we'll take it from there.</p>
+    <button class="btn-outline" onclick="downloadPDF()">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M4 6.5l2.5 2.5 2.5-2.5M1.5 11.5h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download PDF
+    </button>
+  </div>
+
+</main>
+
+<footer>
+  <span>© 2025 Outside Agency</span>
+  <span>
+    <a href="mailto:marketing@outsideagency.net">marketing@outsideagency.net</a>
+    &nbsp;·&nbsp;
+    <a href="https://outsideagency.net" target="_blank">outsideagency.net</a>
+  </span>
+</footer>
+
+<script>
+  // ─────────────────────────────────────────────
+  // CONFIGURATION — replace with your Formspree ID
+  // Get your endpoint at https://formspree.io
+  // ─────────────────────────────────────────────
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mwvwkvgp';
+
+  // ── Global state ──
+  let capturedData = {};
+
+  // ── Progress ──
+  function updateProgress() {
+    const total = document.querySelectorAll('.field').length;
+    let filled = 0;
+    document.querySelectorAll('.field').forEach(f => {
+      const texts   = [...f.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],input[type="url"],select,textarea')];
+      const checks  = f.querySelectorAll('input[type="checkbox"]:checked');
+      const radios  = f.querySelectorAll('input[type="radio"]:checked');
+      if (texts.some(i => i.value.trim())) filled++;
+      else if (checks.length) filled++;
+      else if (radios.length) filled++;
+    });
+    document.getElementById('prog').style.width = Math.min(Math.round(filled / total * 100), 100) + '%';
+  }
+
+  // ── Chip toggle ──
+  function toggleChip(el) {
+    el.classList.toggle('on');
+    el.querySelector('input').checked = el.classList.contains('on');
+    updateProgress();
+  }
+
+  // ── Pill radio ──
+  function selectPill(el, name) {
+    document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+      r.closest('.pill').classList.remove('on');
+    });
+    el.classList.add('on');
+    el.querySelector('input').checked = true;
+    updateProgress();
+  }
+
+  // ── Live progress on text inputs ──
+  document.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],input[type="url"],select,textarea')
+    .forEach(el => el.addEventListener('input', updateProgress));
+
+  // ── Collect data ──
+  function collect() {
+    const fd = {};
+    document.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],input[type="url"],select,textarea')
+      .forEach(el => { if (el.name) fd[el.name] = el.value.trim(); });
+
+    const cbGroups = {};
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+      if (!cbGroups[cb.name]) cbGroups[cb.name] = [];
+      cbGroups[cb.name].push(cb.value);
+    });
+    Object.assign(fd, cbGroups);
+
+    document.querySelectorAll('input[type="radio"]:checked').forEach(r => {
+      fd[r.name] = r.value;
+    });
+    return fd;
+  }
+
+  // ── Validate ──
+  function validate() {
+    let ok = true;
+
+    const textRequired = [
+      { id: 'f-biz-name',      name: 'biz_name' },
+      { id: 'f-location',      name: 'location' },
+      { id: 'f-contact-name',  name: 'contact_name' },
+    ];
+
+    textRequired.forEach(({ id, name }) => {
+      const field = document.getElementById(id);
+      const input = field.querySelector(`[name="${name}"]`);
+      field.classList.remove('bad');
+      if (!input.value.trim()) { field.classList.add('bad'); ok = false; }
+    });
+
+    // Email
+    const ef = document.getElementById('f-contact-email');
+    const ev = ef.querySelector('[name="contact_email"]');
+    ef.classList.remove('bad');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ev.value.trim())) { ef.classList.add('bad'); ok = false; }
+
+    // Industry select
+    const inf = document.getElementById('f-industry');
+    const inv = inf.querySelector('[name="industry"]');
+    inf.classList.remove('bad');
+    if (!inv.value) { inf.classList.add('bad'); ok = false; }
+
+    // SMS budget
+    const sbf = document.getElementById('f-sms-budget');
+    const sbv = document.querySelector('input[name="sms_budget"]:checked');
+    sbf.classList.remove('bad');
+    if (!sbv) { sbf.classList.add('bad'); ok = false; }
+
+    return ok;
+  }
+
+  // ── Build PDF ──
+  function buildPDF(fd) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'pt', format: 'letter' });
+
+    const pageW = 612, pageH = 792;
+    const marginL = 56, marginR = 56, contentW = pageW - marginL - marginR;
+    let y = 0;
+
+    const gold   = [201, 168, 76];
+    const dark   = [13,  13,  13];
+    const light  = [240, 237, 230];
+    const muted  = [120, 120, 120];
+    const border = [40,  40,  40];
+
+    function checkPage(needed = 24) {
+      if (y + needed > pageH - 56) { doc.addPage(); y = 56; }
+    }
+
+    // Header bar
+    doc.setFillColor(...dark);
+    doc.rect(0, 0, pageW, 70, 'F');
+    doc.setFillColor(...gold);
+    doc.rect(0, 70, pageW, 2, 'F');
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(18);
+    doc.setTextColor(...light);
+    doc.text('Outside Agency', marginL, 32);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(...muted);
+    doc.text('Performance Marketing', marginL, 46);
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(...gold);
+    const badge = 'SMS MARKETING DISCOVERY';
+    const bw = doc.getTextWidth(badge) + 16;
+    const bx = pageW - marginR - bw;
+    doc.setDrawColor(...gold);
+    doc.setLineWidth(0.75);
+    doc.rect(bx, 22, bw, 18, 'S');
+    doc.text(badge, bx + 8, 34.5);
+
+    y = 96;
+
+    // Submitted line
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+    const timeStr = now.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' });
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor(...muted);
+    doc.text(`Submitted: ${dateStr} at ${timeStr}  |  marketing@outsideagency.net  |  outsideagency.net`, marginL, y);
+    y += 26;
+
+    doc.setDrawColor(...border);
+    doc.setLineWidth(0.5);
+    doc.line(marginL, y, pageW - marginR, y);
+    y += 28;
+
+    // Section renderer
+    function section(title, num) {
+      checkPage(48);
+      doc.setFillColor(...gold);
+      doc.rect(marginL, y, 2, 16, 'F');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.5);
+      doc.setTextColor(...gold);
+      doc.text(`0${num}`, marginL + 9, y + 11.5);
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(...light);
+      doc.text(title.toUpperCase(), marginL + 26, y + 11.5);
+      y += 26;
+
+      doc.setDrawColor(...border);
+      doc.setLineWidth(0.4);
+      doc.line(marginL, y, pageW - marginR, y);
+      y += 16;
+    }
+
+    // Row renderer
+    function row(label, value) {
+      if (!value || value === '') value = '—';
+      const displayVal = Array.isArray(value) ? value.join(', ') : value;
+
+      const labelLines = doc.splitTextToSize(label, 155);
+      const valueLines = doc.splitTextToSize(displayVal, contentW - 175);
+      const lines = Math.max(labelLines.length, valueLines.length);
+      const rowH  = lines * 13 + 14;
+
+      checkPage(rowH + 4);
+
+      doc.setFillColor(20, 20, 20);
+      doc.rect(marginL, y, contentW, rowH, 'F');
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(...muted);
+      labelLines.forEach((line, i) => doc.text(line, marginL + 10, y + 13 + i * 13));
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(...light);
+      valueLines.forEach((line, i) => doc.text(line, marginL + 175, y + 13 + i * 13));
+
+      y += rowH + 3;
+    }
+
+    const v = (key) => {
+      const val = fd[key];
+      if (!val || (Array.isArray(val) && val.length === 0)) return null;
+      return val;
+    };
+
+    // 01
+    section('About Your Business', 1);
+    row('Business Name',     v('biz_name'));
+    row('Industry / Type',   v('industry'));
+    row('Location',          v('location'));
+    row('No. of Locations',  v('locations_count'));
+    row('Business Size',     v('biz_size'));
+    row('Contact Name',      v('contact_name'));
+    row('Email',             v('contact_email'));
+    row('Phone',             v('contact_phone'));
+    row('Website',           v('website'));
+    y += 12;
+
+    // 02
+    section('Current Marketing', 2);
+    row('Active Channels',       v('channels'));
+    row('Satisfaction Level',    v('satisfaction'));
+    row('Biggest Challenge',     v('challenge'));
+    row('Customer Data On Hand', v('customer_data'));
+    row('Contact List Size',     v('list_size'));
+    y += 12;
+
+    // 03
+    section('Marketing Goals & Services', 3);
+    row('Marketing Goals',     v('mkt_goals'));
+    row('Services of Interest', v('services'));
+    row('Success at 90 Days',  v('success_definition'));
+    row('Start Timeline',      v('launch'));
+    row('Concerns',            v('concerns'));
+    y += 12;
+
+    // 04
+    section('Budget & Investment', 4);
+    row('Total Mktg Budget (Monthly)', v('total_budget'));
+    row('SMS Budget (Monthly)',         v('sms_budget'));
+    row('Decision Timeline',            v('decision_timeline'));
+    row('Expected ROI',                 v('roi_expectation'));
+    y += 12;
+
+    // 05
+    section('Additional Context', 5);
+    row('Decision Makers', v('decision_makers'));
+    row('Referred By',     v('referral'));
+    row('Notes',           v('notes'));
+    y += 24;
+
+    // Footer line
+    checkPage(40);
+    doc.setDrawColor(...border);
+    doc.setLineWidth(0.5);
+    doc.line(marginL, y, pageW - marginR, y);
+    y += 14;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(7.5);
+    doc.setTextColor(...muted);
+    doc.text('Generated by Outside Agency SMS Marketing Discovery Form  |  Confidential', marginL, y);
+    doc.text('marketing@outsideagency.net  |  outsideagency.net', pageW - marginR, y, { align: 'right' });
+
+    return doc;
+  }
+
+  // ── Download PDF ──
+  function downloadPDF() {
+    const doc = buildPDF(capturedData);
+    const safeName = (capturedData.biz_name || 'business').replace(/[^a-z0-9]/gi, '_').toLowerCase();
+    doc.save(`outside-agency_sms-discovery_${safeName}.pdf`);
+  }
+
+  // ── Show/hide states ──
+  function showState(id) {
+    document.getElementById('form').style.display    = 'none';
+    document.getElementById('intro').style.display   = 'none';
+    ['stateSuccess', 'stateError'].forEach(s => {
+      document.getElementById(s).classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+    document.getElementById('prog').style.width = '100%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Submit handler ──
+  async function handleSubmit() {
+    if (!validate()) {
+      const first = document.querySelector('.field.bad');
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    capturedData = collect();
+
+    // Loading UI
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    document.getElementById('btnLabel').textContent = 'Sending…';
+    document.getElementById('spinner').style.display = 'block';
+    document.getElementById('btnArrow').style.display = 'none';
+
+    // Build form payload for Formspree
+    const payload = new FormData();
+    Object.entries(capturedData).forEach(([k, v]) => {
+      payload.append(k, Array.isArray(v) ? v.join(', ') : v);
+    });
+
+    let success = false;
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: payload,
+        headers: { 'Accept': 'application/json' }
+      });
+      success = res.ok;
+    } catch (_) {
+      success = false;
+    }
+
+    // Always download PDF regardless
+    downloadPDF();
+
+    // Show appropriate state
+    if (success) {
+      showState('stateSuccess');
+    } else {
+      showState('stateError');
+    }
+  }
+
+  // Init
+  updateProgress();
+</script>
+</body>
+</html>

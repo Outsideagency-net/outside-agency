@@ -424,14 +424,14 @@
       </div>
 
       <div class="field" id="f-biz-name">
-        <label class="ql">Business Name <span class="req">*</span></label>
+        <label class="ql">Business Name <span class="req">*</span></div>
         <input type="text" name="biz_name" placeholder="Your business name" />
         <div class="err">This field is required.</div>
       </div>
 
       <div class="two-col">
         <div class="field" id="f-industry">
-          <label class="ql">Industry / Business Type <span class="req">*</span></label>
+          <label class="ql">Industry / Business Type <span class="req">*</span></div>
           <select name="industry">
             <option value="" disabled selected>Select one</option>
             <option>Restaurant / Food & Beverage</option>
@@ -453,7 +453,7 @@
         </div>
 
         <div class="field" id="f-location">
-          <label class="ql">Primary Location <span class="req">*</span></label>
+          <label class="ql">Primary Location <span class="req">*</span></div>
           <input type="text" name="location" placeholder="City, State" />
           <div class="err">This field is required.</div>
         </div>
@@ -486,13 +486,13 @@
 
       <div class="two-col">
         <div class="field" id="f-contact-name">
-          <label class="ql">Your Name & Title <span class="req">*</span></label>
+          <label class="ql">Your Name & Title <span class="req">*</span></div>
           <input type="text" name="contact_name" placeholder="Jane Smith, Owner" />
           <div class="err">This field is required.</div>
         </div>
 
         <div class="field" id="f-contact-email">
-          <label class="ql">Email Address <span class="req">*</span></label>
+          <label class="ql">Email Address <span class="req">*</span></div>
           <input type="email" name="contact_email" placeholder="you@yourbusiness.com" />
           <div class="err">Please enter a valid email.</div>
         </div>
@@ -569,11 +569,11 @@
       <div class="field" id="f-satisfaction">
         <label class="ql">How satisfied are you with your current marketing results?</label>
         <div class="radio-row">
-          <label class="pill" onclick="selectPill(this,'satisfaction')"><input type="radio" name="satisfaction" value="Very Dissatisfied"/><div class="rdot"></div><span class="pill-label">Very Dissatisfied</span></label>
-          <label class="pill" onclick="selectPill(this,'satisfaction')"><input type="radio" name="satisfaction" value="Dissatisfied"/><div class="rdot"></div><span class="pill-label">Dissatisfied</span></label>
-          <label class="pill" onclick="selectPill(this,'satisfaction')"><input type="radio" name="satisfaction" value="Neutral"/><div class="rdot"></div><span class="pill-label">Neutral</span></label>
-          <label class="pill" onclick="selectPill(this,'satisfaction')"><input type="radio" name="satisfaction" value="Satisfied"/><div class="rdot"></div><span class="pill-label">Satisfied</span></label>
-          <label class="pill" onclick="selectPill(this,'satisfaction')"><input type="radio" name="satisfaction" value="Very Satisfied"/><div class="rdot"></div><span class="pill-label">Very Satisfied</span></label>
+          <div class="pill" onclick="selectPill(this,'satisfaction',event)"><input type="radio" name="satisfaction" value="Very Dissatisfied"/><div class="rdot"></div><span class="pill-label">Very Dissatisfied</span></div>
+          <div class="pill" onclick="selectPill(this,'satisfaction',event)"><input type="radio" name="satisfaction" value="Dissatisfied"/><div class="rdot"></div><span class="pill-label">Dissatisfied</span></div>
+          <div class="pill" onclick="selectPill(this,'satisfaction',event)"><input type="radio" name="satisfaction" value="Neutral"/><div class="rdot"></div><span class="pill-label">Neutral</span></div>
+          <div class="pill" onclick="selectPill(this,'satisfaction',event)"><input type="radio" name="satisfaction" value="Satisfied"/><div class="rdot"></div><span class="pill-label">Satisfied</span></div>
+          <div class="pill" onclick="selectPill(this,'satisfaction',event)"><input type="radio" name="satisfaction" value="Very Satisfied"/><div class="rdot"></div><span class="pill-label">Very Satisfied</span></div>
         </div>
       </div>
 
@@ -585,20 +585,20 @@
       <div class="field" id="f-customer-data">
         <label class="ql">Do you currently collect customer contact info (phone / email)?</label>
         <div class="radio-row">
-          <label class="pill" onclick="selectPill(this,'customer_data')"><input type="radio" name="customer_data" value="Yes — solid list"/><div class="rdot"></div><span class="pill-label">Yes — solid list</span></label>
-          <label class="pill" onclick="selectPill(this,'customer_data')"><input type="radio" name="customer_data" value="Somewhat — incomplete"/><div class="rdot"></div><span class="pill-label">Somewhat — incomplete</span></label>
-          <label class="pill" onclick="selectPill(this,'customer_data')"><input type="radio" name="customer_data" value="No — starting from zero"/><div class="rdot"></div><span class="pill-label">No — starting from zero</span></label>
+          <div class="pill" onclick="selectPill(this,'customer_data',event)"><input type="radio" name="customer_data" value="Yes — solid list"/><div class="rdot"></div><span class="pill-label">Yes — solid list</span></div>
+          <div class="pill" onclick="selectPill(this,'customer_data',event)"><input type="radio" name="customer_data" value="Somewhat — incomplete"/><div class="rdot"></div><span class="pill-label">Somewhat — incomplete</span></div>
+          <div class="pill" onclick="selectPill(this,'customer_data',event)"><input type="radio" name="customer_data" value="No — starting from zero"/><div class="rdot"></div><span class="pill-label">No — starting from zero</span></div>
         </div>
       </div>
 
       <div class="field" id="f-list-size">
         <label class="ql">Approximate size of your current contact list</label>
         <div class="radio-row">
-          <label class="pill" onclick="selectPill(this,'list_size')"><input type="radio" name="list_size" value="0–250"/><div class="rdot"></div><span class="pill-label">0–250</span></label>
-          <label class="pill" onclick="selectPill(this,'list_size')"><input type="radio" name="list_size" value="251–1,000"/><div class="rdot"></div><span class="pill-label">251–1,000</span></label>
-          <label class="pill" onclick="selectPill(this,'list_size')"><input type="radio" name="list_size" value="1,001–5,000"/><div class="rdot"></div><span class="pill-label">1,001–5,000</span></label>
-          <label class="pill" onclick="selectPill(this,'list_size')"><input type="radio" name="list_size" value="5,000+"/><div class="rdot"></div><span class="pill-label">5,000+</span></label>
-          <label class="pill" onclick="selectPill(this,'list_size')"><input type="radio" name="list_size" value="Unknown"/><div class="rdot"></div><span class="pill-label">Unknown</span></label>
+          <div class="pill" onclick="selectPill(this,'list_size',event)"><input type="radio" name="list_size" value="0–250"/><div class="rdot"></div><span class="pill-label">0–250</span></div>
+          <div class="pill" onclick="selectPill(this,'list_size',event)"><input type="radio" name="list_size" value="251–1,000"/><div class="rdot"></div><span class="pill-label">251–1,000</span></div>
+          <div class="pill" onclick="selectPill(this,'list_size',event)"><input type="radio" name="list_size" value="1,001–5,000"/><div class="rdot"></div><span class="pill-label">1,001–5,000</span></div>
+          <div class="pill" onclick="selectPill(this,'list_size',event)"><input type="radio" name="list_size" value="5,000+"/><div class="rdot"></div><span class="pill-label">5,000+</span></div>
+          <div class="pill" onclick="selectPill(this,'list_size',event)"><input type="radio" name="list_size" value="Unknown"/><div class="rdot"></div><span class="pill-label">Unknown</span></div>
         </div>
       </div>
 
@@ -615,15 +615,15 @@
         <label class="ql">What are your primary marketing goals?</label>
         <p class="hint">Select all that apply</p>
         <div class="check-grid">
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Drive repeat purchases / visits"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Drive repeat visits / purchases</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Generate new leads or customers"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Generate new leads / customers</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Increase brand awareness"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Increase brand awareness</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Build a loyalty program"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Build a loyalty program</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Win back lapsed customers"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Win back lapsed customers</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Promote deals or seasonal offers"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Promote deals / offers</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Improve online presence / visibility"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Improve online visibility</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Increase online sales or bookings"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Increase online sales / bookings</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Not sure yet"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Not sure yet</span></label>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Drive repeat purchases / visits"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Drive repeat visits / purchases</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Generate new leads or customers"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Generate new leads / customers</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Increase brand awareness"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Increase brand awareness</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Build a loyalty program"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Build a loyalty program</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Win back lapsed customers"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Win back lapsed customers</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Promote deals or seasonal offers"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Promote deals / offers</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Improve online presence / visibility"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Improve online visibility</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Increase online sales or bookings"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Increase online sales / bookings</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="mkt_goals" value="Not sure yet"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Not sure yet</span></div>
         </div>
       </div>
 
@@ -631,15 +631,15 @@
         <label class="ql">Which services are you interested in exploring?</label>
         <p class="hint">Select all that apply — no commitment required</p>
         <div class="check-grid">
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="SMS / Text Message Marketing"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">SMS / Text Message Marketing</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Paid Search (Google Ads)"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Paid Search (Google Ads)</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Paid Social (Meta, TikTok, etc.)"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Paid Social (Meta, TikTok, etc.)</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Email Marketing"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Email Marketing</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="SEO / Local Search"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">SEO / Local Search</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Loyalty Program Setup"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Loyalty Program Setup</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Marketing Strategy / Consulting"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Strategy / Consulting</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Full-Service Performance Marketing"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Full-Service Performance Mktg</span></label>
-          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Not sure — need guidance"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Not sure — need guidance</span></label>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="SMS / Text Message Marketing"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">SMS / Text Message Marketing</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Paid Search (Google Ads)"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Paid Search (Google Ads)</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Paid Social (Meta, TikTok, etc.)"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Paid Social (Meta, TikTok, etc.)</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Email Marketing"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Email Marketing</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="SEO / Local Search"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">SEO / Local Search</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Loyalty Program Setup"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Loyalty Program Setup</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Marketing Strategy / Consulting"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Strategy / Consulting</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Full-Service Performance Marketing"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Full-Service Performance Mktg</span></div>
+          <div class="chip" onclick="toggleChip(this, event)"><input type="checkbox" name="services" value="Not sure — need guidance"/><div class="cbox"><svg width="9" height="7" viewBox="0 0 9 7"><polyline points="1 3.5 3 5.5 8 1" stroke="#0d0d0d" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg></div><span class="chip-label">Not sure — need guidance</span></div>
         </div>
       </div>
 
@@ -651,10 +651,10 @@
       <div class="field" id="f-launch">
         <label class="ql">When are you hoping to get started?</label>
         <div class="radio-row">
-          <label class="pill" onclick="selectPill(this,'launch')"><input type="radio" name="launch" value="ASAP (within 30 days)"/><div class="rdot"></div><span class="pill-label">ASAP (30 days)</span></label>
-          <label class="pill" onclick="selectPill(this,'launch')"><input type="radio" name="launch" value="1–3 months"/><div class="rdot"></div><span class="pill-label">1–3 months</span></label>
-          <label class="pill" onclick="selectPill(this,'launch')"><input type="radio" name="launch" value="3–6 months"/><div class="rdot"></div><span class="pill-label">3–6 months</span></label>
-          <label class="pill" onclick="selectPill(this,'launch')"><input type="radio" name="launch" value="Just exploring"/><div class="rdot"></div><span class="pill-label">Just exploring</span></label>
+          <div class="pill" onclick="selectPill(this,'launch',event)"><input type="radio" name="launch" value="ASAP (within 30 days)"/><div class="rdot"></div><span class="pill-label">ASAP (30 days)</span></div>
+          <div class="pill" onclick="selectPill(this,'launch',event)"><input type="radio" name="launch" value="1–3 months"/><div class="rdot"></div><span class="pill-label">1–3 months</span></div>
+          <div class="pill" onclick="selectPill(this,'launch',event)"><input type="radio" name="launch" value="3–6 months"/><div class="rdot"></div><span class="pill-label">3–6 months</span></div>
+          <div class="pill" onclick="selectPill(this,'launch',event)"><input type="radio" name="launch" value="Just exploring"/><div class="rdot"></div><span class="pill-label">Just exploring</span></div>
         </div>
       </div>
 
@@ -676,24 +676,24 @@
         <label class="ql">Current total monthly marketing budget (all channels)</label>
         <p class="hint">This helps us understand your overall spend context — no wrong answers.</p>
         <div class="radio-row">
-          <label class="pill" onclick="selectPill(this,'total_budget')"><input type="radio" name="total_budget" value="Under $500/mo"/><div class="rdot"></div><span class="pill-label">Under $500</span></label>
-          <label class="pill" onclick="selectPill(this,'total_budget')"><input type="radio" name="total_budget" value="$500–$1,500/mo"/><div class="rdot"></div><span class="pill-label">$500–$1,500</span></label>
-          <label class="pill" onclick="selectPill(this,'total_budget')"><input type="radio" name="total_budget" value="$1,500–$5,000/mo"/><div class="rdot"></div><span class="pill-label">$1,500–$5,000</span></label>
-          <label class="pill" onclick="selectPill(this,'total_budget')"><input type="radio" name="total_budget" value="$5,000–$15,000/mo"/><div class="rdot"></div><span class="pill-label">$5,000–$15,000</span></label>
-          <label class="pill" onclick="selectPill(this,'total_budget')"><input type="radio" name="total_budget" value="$15,000+/mo"/><div class="rdot"></div><span class="pill-label">$15,000+</span></label>
+          <div class="pill" onclick="selectPill(this,'total_budget',event)"><input type="radio" name="total_budget" value="Under $500/mo"/><div class="rdot"></div><span class="pill-label">Under $500</span></div>
+          <div class="pill" onclick="selectPill(this,'total_budget',event)"><input type="radio" name="total_budget" value="$500–$1,500/mo"/><div class="rdot"></div><span class="pill-label">$500–$1,500</span></div>
+          <div class="pill" onclick="selectPill(this,'total_budget',event)"><input type="radio" name="total_budget" value="$1,500–$5,000/mo"/><div class="rdot"></div><span class="pill-label">$1,500–$5,000</span></div>
+          <div class="pill" onclick="selectPill(this,'total_budget',event)"><input type="radio" name="total_budget" value="$5,000–$15,000/mo"/><div class="rdot"></div><span class="pill-label">$5,000–$15,000</span></div>
+          <div class="pill" onclick="selectPill(this,'total_budget',event)"><input type="radio" name="total_budget" value="$15,000+/mo"/><div class="rdot"></div><span class="pill-label">$15,000+</span></div>
         </div>
       </div>
 
       <div class="field" id="f-sms-budget">
-        <label class="ql">Monthly budget you're considering for SMS specifically <span class="req">*</span></label>
+        <label class="ql">Monthly budget you're considering for SMS specifically <span class="req">*</span></div>
         <p class="hint">Covers platform fees and management. Helps us point you toward the right approach.</p>
         <div class="radio-row">
-          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="Under $200/mo"/><div class="rdot"></div><span class="pill-label">Under $200</span></label>
-          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="$200–$500/mo"/><div class="rdot"></div><span class="pill-label">$200–$500</span></label>
-          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="$500–$1,000/mo"/><div class="rdot"></div><span class="pill-label">$500–$1,000</span></label>
-          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="$1,000–$2,500/mo"/><div class="rdot"></div><span class="pill-label">$1,000–$2,500</span></label>
-          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="$2,500+/mo"/><div class="rdot"></div><span class="pill-label">$2,500+</span></label>
-          <label class="pill" onclick="selectPill(this,'sms_budget')"><input type="radio" name="sms_budget" value="Not sure yet"/><div class="rdot"></div><span class="pill-label">Not sure yet</span></label>
+          <div class="pill" onclick="selectPill(this,'sms_budget',event)"><input type="radio" name="sms_budget" value="Under $200/mo"/><div class="rdot"></div><span class="pill-label">Under $200</span></div>
+          <div class="pill" onclick="selectPill(this,'sms_budget',event)"><input type="radio" name="sms_budget" value="$200–$500/mo"/><div class="rdot"></div><span class="pill-label">$200–$500</span></div>
+          <div class="pill" onclick="selectPill(this,'sms_budget',event)"><input type="radio" name="sms_budget" value="$500–$1,000/mo"/><div class="rdot"></div><span class="pill-label">$500–$1,000</span></div>
+          <div class="pill" onclick="selectPill(this,'sms_budget',event)"><input type="radio" name="sms_budget" value="$1,000–$2,500/mo"/><div class="rdot"></div><span class="pill-label">$1,000–$2,500</span></div>
+          <div class="pill" onclick="selectPill(this,'sms_budget',event)"><input type="radio" name="sms_budget" value="$2,500+/mo"/><div class="rdot"></div><span class="pill-label">$2,500+</span></div>
+          <div class="pill" onclick="selectPill(this,'sms_budget',event)"><input type="radio" name="sms_budget" value="Not sure yet"/><div class="rdot"></div><span class="pill-label">Not sure yet</span></div>
         </div>
         <div class="err">Please select a budget range.</div>
       </div>
@@ -701,10 +701,10 @@
       <div class="field" id="f-decision-timeline">
         <label class="ql">How soon are you prepared to move forward?</label>
         <div class="radio-row">
-          <label class="pill" onclick="selectPill(this,'decision_timeline')"><input type="radio" name="decision_timeline" value="Immediately"/><div class="rdot"></div><span class="pill-label">Immediately</span></label>
-          <label class="pill" onclick="selectPill(this,'decision_timeline')"><input type="radio" name="decision_timeline" value="Within 2 weeks"/><div class="rdot"></div><span class="pill-label">Within 2 weeks</span></label>
-          <label class="pill" onclick="selectPill(this,'decision_timeline')"><input type="radio" name="decision_timeline" value="1–3 months"/><div class="rdot"></div><span class="pill-label">1–3 months</span></label>
-          <label class="pill" onclick="selectPill(this,'decision_timeline')"><input type="radio" name="decision_timeline" value="Just researching"/><div class="rdot"></div><span class="pill-label">Just researching</span></label>
+          <div class="pill" onclick="selectPill(this,'decision_timeline',event)"><input type="radio" name="decision_timeline" value="Immediately"/><div class="rdot"></div><span class="pill-label">Immediately</span></div>
+          <div class="pill" onclick="selectPill(this,'decision_timeline',event)"><input type="radio" name="decision_timeline" value="Within 2 weeks"/><div class="rdot"></div><span class="pill-label">Within 2 weeks</span></div>
+          <div class="pill" onclick="selectPill(this,'decision_timeline',event)"><input type="radio" name="decision_timeline" value="1–3 months"/><div class="rdot"></div><span class="pill-label">1–3 months</span></div>
+          <div class="pill" onclick="selectPill(this,'decision_timeline',event)"><input type="radio" name="decision_timeline" value="Just researching"/><div class="rdot"></div><span class="pill-label">Just researching</span></div>
         </div>
       </div>
 
@@ -725,10 +725,10 @@
       <div class="field" id="f-decision-makers">
         <label class="ql">Who else is involved in making this decision?</label>
         <div class="radio-row">
-          <label class="pill" onclick="selectPill(this,'decision_makers')"><input type="radio" name="decision_makers" value="Just me"/><div class="rdot"></div><span class="pill-label">Just me</span></label>
-          <label class="pill" onclick="selectPill(this,'decision_makers')"><input type="radio" name="decision_makers" value="Me + a partner"/><div class="rdot"></div><span class="pill-label">Me + a partner</span></label>
-          <label class="pill" onclick="selectPill(this,'decision_makers')"><input type="radio" name="decision_makers" value="Leadership / executive approval"/><div class="rdot"></div><span class="pill-label">Leadership approval needed</span></label>
-          <label class="pill" onclick="selectPill(this,'decision_makers')"><input type="radio" name="decision_makers" value="Marketing team involved"/><div class="rdot"></div><span class="pill-label">Marketing team involved</span></label>
+          <div class="pill" onclick="selectPill(this,'decision_makers',event)"><input type="radio" name="decision_makers" value="Just me"/><div class="rdot"></div><span class="pill-label">Just me</span></div>
+          <div class="pill" onclick="selectPill(this,'decision_makers',event)"><input type="radio" name="decision_makers" value="Me + a partner"/><div class="rdot"></div><span class="pill-label">Me + a partner</span></div>
+          <div class="pill" onclick="selectPill(this,'decision_makers',event)"><input type="radio" name="decision_makers" value="Leadership / executive approval"/><div class="rdot"></div><span class="pill-label">Leadership approval needed</span></div>
+          <div class="pill" onclick="selectPill(this,'decision_makers',event)"><input type="radio" name="decision_makers" value="Marketing team involved"/><div class="rdot"></div><span class="pill-label">Marketing team involved</span></div>
         </div>
       </div>
 
@@ -802,7 +802,7 @@
   </span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // ─────────────────────────────────────────────
   // CONFIGURATION — replace with your Formspree ID
   // Get your endpoint at https://formspree.io
@@ -834,9 +834,11 @@
     el.querySelector('input').checked = el.classList.contains('on');
     updateProgress();
   }
+  window.toggleChip = toggleChip;
 
   // ── Pill radio ──
-  function selectPill(el, name) {
+  function selectPill(el, name, e) {
+    if (e) e.preventDefault();
     document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
       r.closest('.pill').classList.remove('on');
     });
@@ -844,6 +846,9 @@
     el.querySelector('input').checked = true;
     updateProgress();
   }
+  window.selectPill = selectPill;
+  window.handleSubmit = handleSubmit;
+  window.downloadPDF = downloadPDF;
 
   // ── Live progress on text inputs ──
   document.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],input[type="url"],select,textarea')

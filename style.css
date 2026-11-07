@@ -461,6 +461,7 @@ p { font-family: var(--font-body); }
   transition: transform 300ms ease;
   transform-origin: left;
 }
+.service-card-wide { grid-column: 1 / -1; align-items: center; text-align: center; }
 .service-card:hover { background: #252525; }
 .service-card:hover::before { transform: scaleX(1); }
 

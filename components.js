@@ -25,6 +25,7 @@
           <a href="${root}services/content-creation-services.html">Content Creation</a>
           <a href="${root}services/programmatic-advertising.html">Programmatic Advertising</a>
           <a href="${root}services/digital-out-of-home-advertising.html">Digital Out of Home</a>
+          <a href="${root}services/ai-receptionist.html">AI Receptionist</a>
         </div>
       </div>
       <a href="${root}case-studies.html">Case Studies</a>
@@ -50,6 +51,7 @@
     <a href="${root}services/content-creation-services.html">Content Creation</a>
     <a href="${root}services/programmatic-advertising.html">Programmatic</a>
     <a href="${root}services/digital-out-of-home-advertising.html">DOOH</a>
+    <a href="${root}services/ai-receptionist.html">AI Receptionist</a>
   </div>
   <a href="${root}case-studies.html">Case Studies</a>
   <a href="${root}about.html">About</a>
@@ -107,6 +109,7 @@
         <a href="${root}services/content-creation-services.html">Content Creation</a>
         <a href="${root}services/programmatic-advertising.html">Programmatic Advertising</a>
         <a href="${root}services/digital-out-of-home-advertising.html">Digital Out of Home</a>
+        <a href="${root}services/ai-receptionist.html">AI Receptionist</a>
         <a href="${root}smart-lead-capture.html">Smart Lead Capture</a>
       </div>
       <div class="footer-col">

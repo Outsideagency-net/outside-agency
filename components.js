@@ -24,6 +24,7 @@
           <a href="${root}services/creative-design-agency.html">Creative Design</a>
           <a href="${root}services/content-creation-services.html">Content Creation</a>
           <a href="${root}services/programmatic-advertising.html">Programmatic Advertising</a>
+          <a href="${root}services/connected-tv-advertising.html">Connected TV</a>
           <a href="${root}services/digital-out-of-home-advertising.html">Digital Out of Home</a>
           <a href="${root}services/ai-receptionist.html">AI Receptionist</a>
         </div>
@@ -50,6 +51,7 @@
     <a href="${root}services/creative-design-agency.html">Creative Design</a>
     <a href="${root}services/content-creation-services.html">Content Creation</a>
     <a href="${root}services/programmatic-advertising.html">Programmatic</a>
+    <a href="${root}services/connected-tv-advertising.html">Connected TV</a>
     <a href="${root}services/digital-out-of-home-advertising.html">DOOH</a>
     <a href="${root}services/ai-receptionist.html">AI Receptionist</a>
   </div>
@@ -98,7 +100,7 @@
         <a href="${root}index.html" class="nav-logo" style="margin-bottom:4px;">
           <img src="${root}logo-white.png" alt="Outside Agency" class="footer-logo-img">
         </a>
-        <p>Performance marketing for SMBs and eCommerce brands. Paid search, social, programmatic, DOOH, content, and AI call answering — built to drive revenue.</p>
+        <p>Performance marketing for SMBs and eCommerce brands. Paid search, social, programmatic, connected TV, DOOH, content, and AI call answering — built to drive revenue.</p>
         <a href="${root}schedule.html" class="btn btn-primary btn-sm">Schedule a Free Call →</a>
       </div>
       <div class="footer-col">
@@ -108,6 +110,7 @@
         <a href="${root}services/creative-design-agency.html">Creative Design</a>
         <a href="${root}services/content-creation-services.html">Content Creation</a>
         <a href="${root}services/programmatic-advertising.html">Programmatic Advertising</a>
+        <a href="${root}services/connected-tv-advertising.html">Connected TV</a>
         <a href="${root}services/digital-out-of-home-advertising.html">Digital Out of Home</a>
         <a href="${root}services/ai-receptionist.html">AI Receptionist</a>
         <a href="${root}smart-lead-capture.html">Smart Lead Capture</a>

@@ -437,7 +437,7 @@ p { font-family: var(--font-body); }
 /* ── Service Cards ─────────────────────────────────────────── */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1px;
   background: #1e1e1e;
   border: 1px solid #1e1e1e;
@@ -461,7 +461,8 @@ p { font-family: var(--font-body); }
   transition: transform 300ms ease;
   transform-origin: left;
 }
-.service-card-wide { grid-column: 1 / -1; align-items: center; text-align: center; }
+.services-grid > .service-card { grid-column: span 2; }
+.services-grid > .service-card-half { grid-column: span 3; }
 .service-card:hover { background: #252525; }
 .service-card:hover::before { transform: scaleX(1); }
 
@@ -1321,6 +1322,7 @@ footer {
   .proof-item:nth-child(3), .proof-item:nth-child(4) { border-bottom: none; }
 
   .services-grid { grid-template-columns: 1fr; }
+  .services-grid > .service-card, .services-grid > .service-card-half { grid-column: auto; }
   .case-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .outcomes-grid { grid-template-columns: 1fr; }

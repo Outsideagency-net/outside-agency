@@ -98,7 +98,7 @@
         <a href="${root}index.html" class="nav-logo" style="margin-bottom:4px;">
           <img src="${root}logo-white.png" alt="Outside Agency" class="footer-logo-img">
         </a>
-        <p>Performance marketing for SMBs and eCommerce brands. Paid search, social, programmatic, DOOH, and content — built to drive revenue.</p>
+        <p>Performance marketing for SMBs and eCommerce brands. Paid search, social, programmatic, DOOH, content, and AI call answering — built to drive revenue.</p>
         <a href="${root}schedule.html" class="btn btn-primary btn-sm">Schedule a Free Call →</a>
       </div>
       <div class="footer-col">
@@ -133,7 +133,6 @@
       <p>© ${new Date().getFullYear()} Outside Agency. All rights reserved.</p>
       <div class="footer-bottom-links">
         <a href="${root}privacy-policy.html">Privacy Policy</a>
-        <a href="${root}terms.html">Terms of Service</a>
       </div>
     </div>
   </div>

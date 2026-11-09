@@ -130,4 +130,22 @@
     <priority>0.3</priority>
   </url>
 
+  <url>
+    <loc>https://outsideagency.net/blog/paid-search-management-small-business.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://outsideagency.net/blog/website-leads-without-more-ad-spend.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://outsideagency.net/blog/digital-marketing-for-contractors.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

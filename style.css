@@ -1344,3 +1344,21 @@ footer {
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   .values-grid { grid-template-columns: 1fr; }
 }
+
+/* ── BLOG POSTS ─────────────────────────────────────────── */
+a.blog-card { text-decoration: none; color: inherit; }
+.post-meta { color: var(--gray-mid); font-size: 0.9rem; margin-top: 20px; }
+.post-body { max-width: 760px; margin: 0 auto; color: var(--gray-dark); font-size: 1.05rem; line-height: 1.8; }
+.post-body > p { margin-bottom: 20px; }
+.post-body .post-lede { font-size: 1.2rem; line-height: 1.7; color: var(--text-dark); }
+.post-body h2 { color: var(--text-dark); font-size: clamp(1.5rem, 2.6vw, 2rem); margin: 56px 0 18px; }
+.post-body h3 { color: var(--text-dark); font-size: 1.2rem; margin: 32px 0 12px; }
+.post-body ul, .post-body ol { margin: 0 0 24px 1.4em; }
+.post-body li { margin-bottom: 10px; padding-left: 4px; }
+.post-body a { color: #7A5C0E; text-decoration: underline; text-underline-offset: 3px; }
+.post-body strong { color: var(--text-dark); }
+.post-table-wrap { overflow-x: auto; margin: 8px 0 28px; }
+.post-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.post-table th, .post-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--gray-light); }
+.post-table th { color: var(--text-dark); font-weight: 600; background: rgba(184,146,42,0.08); }
+@media (max-width: 600px) { .post-table { font-size: 0.8rem; } .post-table th, .post-table td { padding: 10px 8px; } }

@@ -7,7 +7,7 @@
 
 (function() {
   const path = window.location.pathname;
-  const inSubfolder = path.includes('/services/') || path.includes('/case-studies/');
+  const inSubfolder = path.includes('/services/') || path.includes('/case-studies/') || path.includes('/blog/');
   const root = inSubfolder ? '../' : '';
 
   // ── NAV ───────────────────────────────────────────────────
@@ -102,7 +102,7 @@
         <a href="${root}index.html" class="nav-logo" style="margin-bottom:4px;">
           <img src="${root}logo-white.png" alt="Outside Agency" class="footer-logo-img">
         </a>
-        <p>Performance marketing for SMBs and eCommerce brands. Paid search, social, programmatic, connected TV, DOOH, content, and AI call answering — built to drive revenue.</p>
+        <p>Performance marketing for SMBs and eCommerce brands. Paid search, social, programmatic, connected TV, DOOH, content, and AI call answering, built to drive revenue.</p>
         <a href="${root}schedule.html" class="btn btn-primary btn-sm">Schedule a Free Call →</a>
       </div>
       <div class="footer-col">
@@ -128,6 +128,9 @@
       <div class="footer-col">
         <h5>Contact</h5>
         <a href="mailto:marketing@outsideagency.net">marketing@outsideagency.net</a>
+        <a href="tel:+19296849710">(929) 684-9710</a>
+        <address style="font-style:normal;font-size:0.85rem;line-height:1.6;margin-top:8px;">900 Fulton Street<br>Farmingdale, NY 11735</address>
+        <p style="font-size:0.85rem;margin:4px 0 12px;">Serving clients worldwide</p>
         <a href="${root}schedule.html">Book a Free Audit</a>
         <div style="margin-top:20px;">
           <p style="font-size:0.78rem;color:#333;margin-bottom:8px;font-family:var(--font-body);">No contracts. No commitment.<br>Free audit included.</p>

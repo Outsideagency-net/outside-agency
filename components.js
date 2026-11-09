@@ -1,6 +1,8 @@
 /* ============================================================
    OUTSIDE AGENCY — COMPONENTS (Nav + Footer + Popup)
    Injects shared HTML into every page
+   Nav and footer are also pre-rendered into each page for SEO.
+   After editing them here, run: python3 scripts/render_components.py
    ============================================================ */
 
 (function() {
@@ -150,5 +152,8 @@
 
   const footerTarget = document.getElementById('footer-placeholder');
   if (footerTarget) footerTarget.outerHTML = footerHTML;
+
+  // Keep the copyright year current on pre-rendered footers
+  document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
 
 })();

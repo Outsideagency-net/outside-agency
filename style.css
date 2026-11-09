@@ -1361,4 +1361,8 @@ a.blog-card { text-decoration: none; color: inherit; }
 .post-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
 .post-table th, .post-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--gray-light); }
 .post-table th { color: var(--text-dark); font-weight: 600; background: rgba(184,146,42,0.08); }
+.blog-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.blog-card:hover .blog-card-img img { transform: scale(1.03); }
+.post-hero-img { margin: 0 0 36px; }
+.post-hero-img img { width: 100%; height: auto; display: block; border-radius: 4px; }
 @media (max-width: 600px) { .post-table { font-size: 0.8rem; } .post-table th, .post-table td { padding: 10px 8px; } }

@@ -7,7 +7,7 @@
 
 (function() {
   const path = window.location.pathname;
-  const inSubfolder = path.includes('/services/') || path.includes('/case-studies/');
+  const inSubfolder = path.includes('/services/') || path.includes('/case-studies/') || path.includes('/blog/');
   const root = inSubfolder ? '../' : '';
 
   // ── NAV ───────────────────────────────────────────────────
@@ -102,7 +102,7 @@
         <a href="${root}index.html" class="nav-logo" style="margin-bottom:4px;">
           <img src="${root}logo-white.png" alt="Outside Agency" class="footer-logo-img">
         </a>
-        <p>Performance marketing for SMBs and eCommerce brands. Paid search, social, programmatic, connected TV, DOOH, content, and AI call answering — built to drive revenue.</p>
+        <p>Performance marketing for SMBs and eCommerce brands. Paid search, social, programmatic, connected TV, DOOH, content, and AI call answering, built to drive revenue.</p>
         <a href="${root}schedule.html" class="btn btn-primary btn-sm">Schedule a Free Call →</a>
       </div>
       <div class="footer-col">

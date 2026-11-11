@@ -124,6 +124,7 @@
         <a href="${root}blog.html">Blog</a>
         <a href="${root}contact.html">Contact</a>
         <a href="${root}schedule.html">Schedule a Call</a>
+        <a href="https://www.linkedin.com/company/outsidea" target="_blank" rel="noopener">LinkedIn</a>
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
